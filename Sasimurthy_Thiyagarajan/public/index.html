@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vacation Travel</title>
+    
+    <!-- External Stylesheets links here -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/css/lightbox.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.4.1/dist/css/glide.core.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="icon" href="/path/to/favicon.ico" />
+</head>
+<body>
+
+    <!-- Navigation Bar Menu -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#explore">Explore</a></li>
+            <li><a href="#section-1">About Us</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#destinations">Destinations</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Gradient Background with Home Section -->
+    <section id="home" class="hero">
+        <canvas id="gradient-canvas"></canvas>
+        <div class="hero-content">
+            <h1>Explore the World</h1>
+            <p>Discover amazing vacation destinations and start your adventure!</p>
+        </div>
+    </section>
+
+    <!-- Vacation Slider using Glide.js -->
+    <section class="slider" id="explore">
+        <div class="glide" data-aos="fade-up">
+            <div class="glide__track" data-glide-el="track">
+                <ul class="glide__slides">
+                    <li class="glide__slide"><img src="assets/images/road.jpg" alt="Vacation 1"></li>
+                    <li class="glide__slide"><img src="assets/images/rock travel.jpg" alt="Vacation 2"></li>
+                    <li class="glide__slide"><img src="assets/images/mountain view.jpg" alt="Vacation 3"></li>
+                </ul>
+            </div>
+            
+            <!-- Navigation Arrows -->
+            <div class="glide__arrows" data-glide-el="controls">
+                <button class="glide__arrow glide__arrow--left" data-glide-dir="<">&#10094;</button>
+                <button class="glide__arrow glide__arrow--right" data-glide-dir=">">&#10095;</button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Section 1 block -->
+    <section class="section section-1" id="section-1">
+        <div class="content">
+            <img src="assets/images/falls.jpg" alt="Backpack" data-aos="fade-right">
+            <div data-aos="fade-left">
+                <h2>The Journey Begins</h2>
+                <p>Pack your bags and explore the unknown.</p>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Section 2 block -->
+    <section class="section section-2">
+        <h2 data-aos="fade-up">Discover Hidden Treasures</h2>
+        <div class="gallery">
+            <img src="assets/images/dubai.jpg" alt="Beach" data-aos="zoom-in">
+            <img src="assets/images/beach.jpg" alt="Mountain" data-aos="zoom-in" data-aos-delay="100">
+            <img src="assets/images/paris.jpg" alt="City" data-aos="zoom-in" data-aos-delay="200">
+        </div>
+    </section>
+
+    <!-- Section 3 block-->
+    <section class="section section-3">
+        <div data-aos="flip-down">
+            <h2>Connect with Locals</h2>
+            <p>Experience the culture and meet the people.</p>
+        </div>
+    </section>
+
+    <!-- Lightbox Gallery Section -->
+    <section id="gallery" class="gallery">
+        <h2>Vacation Gallery</h2>
+        <div class="gallery-container">
+            <img src="assets/images/paris.jpg" alt="Vacation 1" class="gallery-item">
+            <img src="assets/images/traveler.jpg" alt="Vacation 2" class="gallery-item">
+            <img src="assets/images/dubai.jpg" alt="Vacation 3" class="gallery-item">
+            <img src="assets/images/beautiful-view.jpg" alt="Vacation 4" class="gallery-item">
+            <img src="assets/images/beach top.jpg" alt="Vacation 5" class="gallery-item">
+            <img src="assets/images/beach.jpg" alt="Vacation 6" class="gallery-item">
+        </div>
+    </section>
+
+    <!-- Lightbox (hidden by default) -->
+    <div id="lightbox">
+        <span id="close-btn" class="close-btn">×</span>
+        <button id="prev-btn" class="nav-btn">&#10094;</button>
+        <img id="lightbox-img" src="" alt="Lightbox Image">
+        <button id="next-btn" class="nav-btn">&#10095;</button>
+    </div>
+
+    <!-- Section for Chart showing booking trends -->
+    <section class="chart-section" id="destinations">
+        <h2>Bookings by Popular Destinations</h2>
+        <div class="chart-container">
+            <canvas id="myChart" width="300" height="150"></canvas>
+        </div>
+    </section>
+
+
+    <!-- Entering the Vaction details for the user -->
+    <div class="container">
+        <h2>Enter Your Details</h2>
+
+        <!-- Credit Card Input -->
+        <label for="card-input">Credit Card:</label>
+        <input type="text" id="card-input" placeholder="#### #### #### ####" />
+
+        <!-- Date Input -->
+        <label for="date-input">Date:</label>
+        <input type="text" id="date-input" placeholder="MM/DD/YYYY" />
+
+        <!-- Time Input -->
+        <label for="time-input">Time:</label>
+        <input type="text" id="time-input" placeholder="hh:mm:ss" />
+
+        <!-- Submit Button -->
+        <button type="submit" id="submit-btn">Submit</button>
+    </div>
+
+    <!-- Interactive Map Section -->
+    <section id="map-section">
+        <h2>Interactive Map</h2>
+        <div id="map" style="height: 400px;"></div>
+    </section>
+
+    <!-- Contact Section -->
+<section id="contact" class="contact-section">
+    <h2>Contact Us</h2>
+    <form class="contact-form" action="#" method="post">
+        <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+        </div>
+        <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Your Message" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Send Message</button>
+    </form>
+</section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Vacation Travel. All rights reserved.</p>
+    </footer>
+
+    <!-- External Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/granim@2.0.0/dist/granim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.4.1/dist/glide.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/cleave.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input/build/js/intlTelInput.min.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="/assets/js/main.js"></script>
+
+</body>
+</html>
